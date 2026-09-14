@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#0b0b10">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TFT Line Lab">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="stylesheet" href="./styles.css">
+<title>TFT Line Lab</title>
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand">TFT Line Lab</div>
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="openers">Openers</button>
+      <button class="tab-btn" data-tab="finder">Finder</button>
+      <button class="tab-btn" data-tab="comps">Comps</button>
+    </nav>
+    <div class="version">v0.1.0</div>
+  </header>
+  <section id="view-openers" class="view active"></section>
+  <section id="view-finder" class="view"></section>
+  <section id="view-comps" class="view"></section>
+</div>
+<div id="builder" class="builder">
+  <div class="builder-top">
+    <button id="builder-back" class="back">← Back</button>
+    <div id="builder-title" class="builder-title"></div>
+    <div id="builder-type" class="builder-type"></div>
+    <div class="builder-tabs">
+      <button class="builder-tab active" data-builder-tab="board">Board</button>
+      <button class="builder-tab" data-builder-tab="openers">Openers</button>
+      <button class="builder-tab" data-builder-tab="econ">Econ</button>
+    </div>
+  </div>
+  <div class="builder-body">
+    <div id="builder-board" class="builder-page active"></div>
+    <div id="builder-openers" class="builder-page"></div>
+    <div id="builder-econ" class="builder-page"></div>
+  </div>
+</div>
+<div id="flex-menu" class="flex-menu"><div class="flex-card"><h3>Choose unit</h3><div id="flex-options"></div><button id="flex-cancel" class="flex-option">Cancel</button></div></div>
+<script src="./data.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
