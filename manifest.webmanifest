@@ -1,0 +1,11 @@
+{
+  "name":"TFT Line Lab",
+  "short_name":"TFT Line Lab",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#0b0b10",
+  "theme_color":"#0b0b10",
+  "orientation":"landscape",
+  "description":"Personal TFT opener, comp, and econ guide tool"
+}
