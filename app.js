@@ -49,8 +49,14 @@ function renderOpeners(){
   paint(); $('#opener-search').oninput=e=>paint(e.target.value); $('#clear-opener').onclick=()=>{state.openerChampions.clear();renderOpeners()};
   view.querySelectorAll('[data-comp-open]').forEach(b=>b.onclick=()=>openBuilder(b.dataset.compOpen));
 }
+function openerSlot(s){
+  const choices=splitChoices(s);
+  const flex=CATEGORY_WORDS.has(s)||s.includes('/')||s==='Flex';
+  const inside=choices.map(x=>state.openerChampions.has(x)?`<span class="slot-match">${esc(x)}</span>`:`<span>${esc(x)}</span>`).join('<span class="slot-sep">/</span>');
+  return `<div class="slot ${flex?'flex':''}">${inside}</div>`;
+}
 function openerCard(o){
-  return `<article class="card"><div class="card-title">${esc(o.name)}</div><div class="slots">${o.slots.map(s=>`<div class="slot ${CATEGORY_WORDS.has(s)||s.includes('/')||s==='Flex'?'flex':''}">${esc(s)}</div>`).join('')}</div><div class="chips">${o.comps.map(c=>`<button class="chip" data-comp-open="${esc(c)}">${esc(c)}</button>`).join('')}</div></article>`;
+  return `<article class="card"><div class="card-title">${esc(o.name)}</div><div class="slots">${o.slots.map(openerSlot).join('')}</div><div class="chips">${o.comps.map(c=>`<button class="chip" data-comp-open="${esc(c)}">${esc(c)}</button>`).join('')}</div></article>`;
 }
 
 function finderInfo(c){
