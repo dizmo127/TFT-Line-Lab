@@ -52,8 +52,8 @@ function renderOpeners(){
 function openerSlot(s){
   const choices=splitChoices(s);
   const flex=CATEGORY_WORDS.has(s)||s.includes('/')||s==='Flex';
-  const inside=choices.map(x=>state.openerChampions.has(x)?`<span class="slot-match">${esc(x)}</span>`:`<span>${esc(x)}</span>`).join('<span class="slot-sep">/</span>');
-  return `<div class="slot ${flex?'flex':''}">${inside}</div>`;
+  const selected=choices.some(x=>state.openerChampions.has(x));
+  return `<div class="slot ${flex?'flex':''} ${selected?'slot-selected':''}">${esc(s)}</div>`;
 }
 function openerCard(o){
   return `<article class="card"><div class="card-title">${esc(o.name)}</div><div class="slots">${o.slots.map(openerSlot).join('')}</div><div class="chips">${o.comps.map(c=>`<button class="chip" data-comp-open="${esc(c)}">${esc(c)}</button>`).join('')}</div></article>`;
