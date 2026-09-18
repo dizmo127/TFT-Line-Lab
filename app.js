@@ -12,7 +12,12 @@ const openerByName = n => D.openers.find(o=>o.name===n);
 function openerChampionNames(){
   const names=new Set();
   D.openers.forEach(o=>o.slots.forEach(slot=>splitChoices(slot).forEach(x=>{if(!CATEGORY_WORDS.has(x)) names.add(x)})));
-  return [...names].sort((a,b)=>a.localeCompare(b));
+  return [...names].sort((a,b)=>{
+    const aSelected=state.openerChampions.has(a);
+    const bSelected=state.openerChampions.has(b);
+    if(aSelected!==bSelected) return aSelected?-1:1;
+    return a.localeCompare(b);
+  });
 }
 function openerExplicitChampions(o){
   const out=new Set();
